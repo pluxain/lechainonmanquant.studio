@@ -21,5 +21,5 @@ export default defineConfig({
     }),
     tailwind(),
   ],
-  site: "https://website.com",
+  site: "https://lechainonmanquant.studio",
 });
