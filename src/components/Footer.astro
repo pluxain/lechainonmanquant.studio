@@ -1,5 +1,24 @@
 ---
 import * as m from "@messages/messages";
+import { Link } from "@components";
+
+const tools = [
+  {
+    text: "Astro",
+    href: "https://astro.build",
+    hreflang: "en",
+  },
+  {
+    text: "TailwindCSS",
+    href: "https://tailwindcss.com",
+    hreflang: "en",
+  },
+  {
+    text: "Paraglide JS",
+    href: "https://inlang.com/m/gerre34r/library-inlang-paraglideJs",
+    hreflang: "en",
+  },
+];
 ---
 
 <footer
@@ -10,5 +29,24 @@ import * as m from "@messages/messages";
   >
     <p>&copy; 2024 {m.le_chainon_manquant_studio()}</p>
     <p>-- {m.moto()}.</p>
+  </div>
+  <hr />
+  <div class="flex flex-row items-stretch justify-between gap-1">
+    <div
+      class="flex flex-col justify-between gap-1 md:flex-row md:justify-center"
+    >
+      <div>{m.made_with()}</div>
+      <div
+        class="flex flex-col items-center justify-end gap-1 md:flex-row md:items-start"
+      >
+        {
+          tools.map(({ href, hreflang, text }) => (
+            <Link href={href} hreflang={hreflang} rel="external">
+              {text}
+            </Link>
+          ))
+        }
+      </div>
+    </div>
   </div>
 </footer>
