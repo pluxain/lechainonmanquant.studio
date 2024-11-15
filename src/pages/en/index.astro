@@ -1,18 +1,17 @@
 ---
-import * as m from "@messages/messages";
-import BaseLayout from "@layouts/BaseLayout.astro";
 
-const pageTitle = m.index_title();
-const description = m.index_meta_description();
 ---
 
-<BaseLayout pageTitle={pageTitle} description={description}>
-  <section>
-    <h1
-      class="py-10 text-center text-3xl font-bold [font-variant-caps:small-caps]"
-    >
-      {m.le_chainon_manquant_studio()}
-    </h1>
-    <p class="text-center">{description}</p>
-  </section>
-</BaseLayout>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="author" content="Pascal Luxain" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Astro</title>
+  </head>
+  <body>
+    <h1>Astro</h1>
+  </body>
+</html>
