@@ -1,0 +1,42 @@
+---
+import * as m from "@messages/messages";
+import { availableLanguageTags } from "@messages/runtime";
+import { LanguageTag, Link } from "@components";
+import BaseLayout from "@layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  description="404 | Not Found"
+  pageTitle="404"
+  robots="noindex,nofollow"
+>
+  <section
+    class="flex w-full grow flex-col justify-center text-center md:m-auto md:w-96"
+  >
+    <h1 class="text-primary text-3xl font-semibold">404</h1>
+    {
+      availableLanguageTags.map((languageTag) => (
+        <div class="pt-6">
+          <p class="text-left">
+            <LanguageTag lang={languageTag} />
+          </p>
+          <h2 class="text-2xl font-bold tracking-tight [font-variant-caps:small-caps]">
+            {m.not_found(undefined, { languageTag })}
+          </h2>
+          <p class="text-accent pt-2 text-base leading-7">
+            {m.not_found_description(undefined, { languageTag })}!
+          </p>
+          <p class="text-accent pt-4 text-base leading-7">
+            {m.not_found_solution_intro(undefined, { languageTag })}
+            <span class="text-base">
+              <Link href={`/${languageTag}`}>
+                {m.here(undefined, { languageTag })}
+              </Link>
+            </span>
+            .
+          </p>
+        </div>
+      ))
+    }
+  </section>
+</BaseLayout>

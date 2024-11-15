@@ -1,6 +1,10 @@
 {
   "$schema": "https://inlang.com/schema/inlang-message-format",
+  "here": "here",
   "index_meta_description": "Le chaînon manquant studio offers bespoke software development services",
   "index_title": "Home",
-  "le_chainon_manquant_studio": "Le ChaînoN ManQuanT Studio"
+  "le_chainon_manquant_studio": "Le ChaînoN ManQuanT Studio",
+  "not_found": "Page not found",
+  "not_found_description": "The page you want to view was not found",
+  "not_found_solution_intro": "You can access the home page"
 }
