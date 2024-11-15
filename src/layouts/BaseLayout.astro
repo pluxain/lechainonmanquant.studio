@@ -20,8 +20,8 @@ const { description, pageTitle, robots = "index, follow" } = props;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{pageTitle}</title>
   </head>
-  <body>
-    <main>
+  <body class="flex h-screen flex-col">
+    <main class="flex grow flex-col px-4">
       <slot />
     </main>
   </body>
