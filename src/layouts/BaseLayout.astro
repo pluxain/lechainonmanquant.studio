@@ -1,5 +1,5 @@
 ---
-import { Header } from "@components";
+import { Footer, Header } from "@components";
 
 type Props = {
   description: string;
@@ -27,5 +27,6 @@ const { description, pageTitle, robots = "index, follow" } = props;
     <main class="flex grow flex-col px-4">
       <slot />
     </main>
+    <Footer />
   </body>
 </html>
