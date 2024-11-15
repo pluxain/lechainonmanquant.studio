@@ -1,0 +1,17 @@
+---
+type Props = {
+  href: string;
+  class?: string;
+  hreflang?: string;
+  rel?: string;
+};
+
+const { class: className, href, hreflang, rel } = Astro.props;
+---
+
+<a
+  href={href}
+  hreflang={hreflang}
+  rel={rel}
+  class:list={["underline", className]}><slot /></a
+>
