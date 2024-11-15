@@ -7,7 +7,7 @@ import paraglide from "@inlang/paraglide-astro";
 export default defineConfig({
   i18n: {
     defaultLocale: "en",
-    locales: ["en"],
+    locales: ["en", "fr"],
     routing: {
       fallbackType: "redirect",
       prefixDefaultLocale: true,

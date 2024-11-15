@@ -1,4 +1,6 @@
 ---
+import { Header } from "@components";
+
 type Props = {
   description: string;
   pageTitle: string;
@@ -21,6 +23,7 @@ const { description, pageTitle, robots = "index, follow" } = props;
     <title>{pageTitle}</title>
   </head>
   <body class="flex h-screen flex-col">
+    <Header />
     <main class="flex grow flex-col px-4">
       <slot />
     </main>
