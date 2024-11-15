@@ -1,4 +1,6 @@
 ---
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
 import * as m from "@messages/messages";
 import { Link } from "@components";
 
@@ -19,6 +21,12 @@ const tools = [
     hreflang: "en",
   },
 ];
+
+const designImagesRootPath = "/src/assets/images/design";
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  // Note: for some reason cannot use String interpolation/template
+  "/src/assets/images/design/*.svg",
+);
 ---
 
 <footer
@@ -47,6 +55,19 @@ const tools = [
           ))
         }
       </div>
+    </div>
+    <div class="stretch flex flex-col justify-start">
+      <Link
+        href="https://github.com/pluxain/lechainonmanquant.studio"
+        hreflang="en"
+        rel="external help nofollow"
+      >
+        <Image
+          src={images[`${designImagesRootPath}/github-mark.svg`]()}
+          alt="Github Mark"
+          class="h-6 w-6"
+        />
+      </Link>
     </div>
   </div>
 </footer>
