@@ -1,0 +1,12 @@
+---
+import LcnMqtLogo from "@images/design/lcnmqt.logo.svg";
+
+// Note: we force class to define height or width or both as a minimum
+type Props = {
+  class: string;
+};
+
+const { class: className } = Astro.props;
+---
+
+<LcnMqtLogo class:list={[className]} />
