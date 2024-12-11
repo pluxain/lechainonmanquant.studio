@@ -8,5 +8,7 @@
       "@libs/*": ["src/libs/*"],
       "@messages/*": ["src/paraglide/*"]
     }
-  }
+  },
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": ["dist"]
 }
