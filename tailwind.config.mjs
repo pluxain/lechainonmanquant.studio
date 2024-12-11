@@ -10,7 +10,11 @@ export default {
         solid: colors.blue[50],
       },
     },
-    extend: {},
+    extend: {
+      fontFamily: {
+        lcnmqt: ["Dosis", "sans-serif"],
+      },
+    },
   },
   plugins: [],
 };
