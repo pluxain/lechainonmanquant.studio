@@ -9,6 +9,10 @@ export default {
   ],
   theme: {
     colors: {
+      lcnmqt: {
+        primary: "#19B0F2",
+        secondary: "#333333",
+      },
       primary: {
         accent: colors.blue[300],
         DEFAULT: colors.blue[500],
