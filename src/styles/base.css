@@ -10,4 +10,8 @@
     font-display: swap;
     src: url(/fonts/Dosis-VariableFont_wght.ttf);
   }
+
+  html {
+    @apply text-base;
+  }
 }
