@@ -3,6 +3,8 @@ import { defineConfig, envField } from "astro/config";
 import tailwind from "@astrojs/tailwind";
 import paraglide from "@inlang/paraglide-astro";
 
+import node from "@astrojs/node";
+
 // https://astro.build/config
 export default defineConfig({
   env: {
@@ -15,9 +17,11 @@ export default defineConfig({
       }),
     },
   },
+
   experimental: {
     svg: true,
   },
+
   i18n: {
     defaultLocale: "en",
     locales: ["en", "fr"],
@@ -27,6 +31,7 @@ export default defineConfig({
       redirectToDefaultLocale: false,
     },
   },
+
   integrations: [
     paraglide({
       project: "./project.inlang",
@@ -42,5 +47,10 @@ export default defineConfig({
       nesting: true,
     }),
   ],
+
   site: "https://lechainonmanquant.studio",
+
+  adapter: node({
+    mode: "standalone",
+  }),
 });
