@@ -1,0 +1,14 @@
+---
+import Logo from "@images/design/lcnmqt.logo.svg";
+
+// Note: we force class to define height or width or both as a minimum
+// Note: color of the logo can also be changed this way:
+// `color` will change the text color and `fill` the icon color
+type Props = {
+  class: string;
+};
+
+const { class: className } = Astro.props;
+---
+
+<Logo class:list={["fill-lcnmqt-primary text-lcnmqt-secondary", className]} />
