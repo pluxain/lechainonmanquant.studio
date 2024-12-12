@@ -1,6 +1,7 @@
 ---
 import * as m from "@messages/messages";
 import BaseLayout from "@layouts/BaseLayout.astro";
+import { Logo } from "@components";
 
 const pageTitle = m.index_title();
 const description = m.index_meta_description();
@@ -8,10 +9,8 @@ const description = m.index_meta_description();
 
 <BaseLayout pageTitle={pageTitle} description={description}>
   <section>
-    <h1
-      class="py-10 text-center text-3xl font-bold [font-variant-caps:small-caps]"
-    >
-      {m.le_chainon_manquant_studio()}
+    <h1 class="flex items-center justify-center">
+      <Logo class="my-10 w-56" />
     </h1>
     <p class="text-center">{description}</p>
   </section>
