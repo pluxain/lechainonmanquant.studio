@@ -1,0 +1,25 @@
+---
+import type { GetStaticPaths } from "astro";
+import { LcnmqtLogo } from "@components";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import * as m from "@messages/messages";
+import { availableLanguageTags } from "@messages/runtime";
+
+const pageTitle = m.home_title();
+const description = m.home_meta_description();
+
+export const getStaticPaths = (async () => {
+  return availableLanguageTags.map((lang) => ({
+    params: { lang },
+  }));
+}) satisfies GetStaticPaths;
+---
+
+<BaseLayout pageTitle={pageTitle} description={description}>
+  <section>
+    <h1 class="flex items-center justify-center">
+      <LcnmqtLogo class="my-10 w-56" />
+    </h1>
+    <p class="text-center">{description}</p>
+  </section>
+</BaseLayout>

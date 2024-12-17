@@ -1,8 +1,8 @@
 {
   "$schema": "https://inlang.com/schema/inlang-message-format",
   "here": "here",
-  "index_meta_description": "Le ChaînoN ManQuanT Studio offers bespoke software development services",
-  "index_title": "Home",
+  "home_meta_description": "Le ChaînoN ManQuanT Studio offers bespoke software development services",
+  "home_title": "Home",
   "made_with": "Crafted with",
   "moto": "Your missing link",
   "not_found": "Page not found",
