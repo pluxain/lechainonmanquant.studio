@@ -24,122 +24,126 @@ export const getStaticPaths = (async () => {
 ---
 
 <BaseLayout description={description} pageTitle={pageTitle} robots="nofollow">
-  <section class="flex w-full grow flex-col justify-center md:m-auto md:w-96">
+  <section class="flex w-full grow flex-col justify-center md:m-auto">
     <h1
       class="py-10 text-center text-3xl font-bold [font-variant-caps:small-caps]"
     >
       {pageTitle}
     </h1>
-    <div>{description}.</div>
-    <form
-      action={`/${currentLocale}/${m.thanks_slug()}`}
-      novalidate
-      class="contact-form mb-6 flex flex-col gap-4"
-    >
-      <Notification class="contact-error invisible my-0" severity="danger">
-        <p>
-          {m.contact_error_oh_nooo()}
-        </p>
-        <p>
-          {m.contact_error_try_later()}
-        </p>
-      </Notification>
-
-      <fieldset class="flex flex-col gap-2">
-        <div class="flex flex-col gap-1">
-          <label for="from" class="font-bold">
-            {m.contact_form_label_from()} *
-          </label>
-          <input
-            type="email"
-            name="from"
-            id="from"
-            required
-            pattern=".+@.+\\..{2,}"
-            autofocus
-            autocomplete="off"
-            class="grow border-b-2 pb-1 outline-none"
-          />
-          <p
-            role="alert"
-            aria-live="polite"
-            class="invisible text-sm text-danger peer-invalid:visible"
+    <Notification class="contact-error invisible my-0" severity="danger">
+      <p>
+        {m.contact_error_oh_nooo()}
+      </p>
+      <p>
+        {m.contact_error_try_later()}
+      </p>
+    </Notification>
+    <div class="mb-6 flex flex-col gap-4 md:flex-row">
+      <div class="flex-1">
+        <p>{description}.</p>
+      </div>
+      <form
+        action={`/${currentLocale}/${m.thanks_slug()}`}
+        novalidate
+        class="contact-form flex flex-1 flex-col gap-4"
+      >
+        <fieldset class="flex flex-col gap-2">
+          <div class="flex flex-col gap-1">
+            <label for="from" class="font-bold">
+              {m.contact_form_label_from()} *
+            </label>
+            <input
+              type="email"
+              name="from"
+              id="from"
+              required
+              pattern=".+@.+\\..{2,}"
+              autofocus
+              autocomplete="off"
+              class="grow border-b-2 pb-1 outline-none"
+            />
+            <p
+              role="alert"
+              aria-live="polite"
+              class="invisible text-sm text-danger peer-invalid:visible"
+            >
+              {m.error_email()}
+            </p>
+          </div>
+          <div class="flex flex-col gap-1">
+            <label for="subject" class="font-bold">
+              {m.contact_form_label_subject()} *
+            </label>
+            <input
+              type="text"
+              name="subject"
+              id="subject"
+              list="subjects"
+              required
+              minlength="5"
+              autocomplete="off"
+              class="grow border-b-2 pb-1 outline-none"
+            />
+            <p
+              role="alert"
+              aria-live="polite"
+              class="invisible text-sm text-danger peer-invalid:visible"
+            >
+              {m.error_subject()}
+            </p>
+            <datalist id="subjects">
+              {services.map((service) => <option>{service}</option>)}
+            </datalist>
+          </div>
+          <div class="flex flex-col gap-1">
+            <label for="message" class="flex flex-row justify-between">
+              <span class="font-bold">
+                {m.contact_form_label_message()} *
+              </span>
+            </label>
+            <ProgressIndicator trackedId="message" max={50} />
+            <textarea
+              name="message"
+              id="message"
+              required
+              minlength="50"
+              autocomplete="off"
+              class="h-32 grow resize-y border-b-2 py-1 outline-none"
+            ></textarea>
+            <p
+              role="alert"
+              aria-live="polite"
+              class="invisible text-sm text-danger peer-invalid:visible"
+            >
+              {m.error_message({ minLength: 50 })}
+            </p>
+          </div>
+        </fieldset>
+        <fieldset class="flex flex-col justify-end gap-2 sm:flex-row">
+          <button
+            type="reset"
+            class="flex grow items-center justify-center bg-secondary px-4 py-2 text-secondary-solid disabled:bg-secondary-accent"
           >
-            {m.error_email()}
-          </p>
-        </div>
-        <div class="flex flex-col gap-1">
-          <label for="subject" class="font-bold">
-            {m.contact_form_label_subject()} *
-          </label>
-          <input
-            type="text"
-            name="subject"
-            id="subject"
-            list="subjects"
-            required
-            minlength="5"
-            autocomplete="off"
-            class="grow border-b-2 pb-1 outline-none"
-          />
-          <p
-            role="alert"
-            aria-live="polite"
-            class="invisible text-sm text-danger peer-invalid:visible"
-          >
-            {m.error_subject()}
-          </p>
-          <datalist id="subjects">
-            {services.map((service) => <option>{service}</option>)}
-          </datalist>
-        </div>
-        <div class="flex flex-col gap-1">
-          <label for="message" class="flex flex-row justify-between">
-            <span class="font-bold">
-              {m.contact_form_label_message()} *
+            <span class="text">
+              {m.contact_form_reset()}
             </span>
-          </label>
-          <ProgressIndicator trackedId="message" max={50} />
-          <textarea
-            name="message"
-            id="message"
-            required
-            minlength="50"
-            autocomplete="off"
-            class="h-32 grow resize-y border-b-2 py-1 outline-none"></textarea>
-          <p
-            role="alert"
-            aria-live="polite"
-            class="invisible text-sm text-danger peer-invalid:visible"
+          </button>
+          <button
+            type="submit"
+            disabled
+            class="flex grow items-center justify-center bg-primary px-4 py-2 text-primary-solid disabled:bg-primary-accent"
           >
-            {m.error_message({ minLength: 50 })}
-          </p>
-        </div>
-      </fieldset>
-      <fieldset class="flex flex-col justify-end gap-2 sm:flex-row">
-        <button
-          type="reset"
-          class="flex grow items-center justify-center bg-secondary px-4 py-2 text-secondary-solid disabled:bg-secondary-accent"
-        >
-          <span class="text">
-            {m.contact_form_reset()}
-          </span>
-        </button>
-        <button
-          type="submit"
-          disabled
-          class="flex grow items-center justify-center bg-primary px-4 py-2 text-primary-solid disabled:bg-primary-accent"
-        >
-          <span class="text">
-            {m.contact_form_submit()}
-          </span>
-          <VisualIndicator class="visual-indicator hidden h-6 w-6" />
-        </button>
-      </fieldset>
-      <dl class="flex gap-1">
-        <dt class="font-bold">*</dt><dd>{m.field_required()}</dd>
-      </dl>
-    </form>
+            <span class="text">
+              {m.contact_form_submit()}
+            </span>
+            <VisualIndicator class="visual-indicator hidden h-6 w-6" />
+          </button>
+        </fieldset>
+        <dl class="flex gap-1">
+          <dt class="font-bold">*</dt><dd>{m.field_required()}</dd>
+        </dl>
+      </form>
+    </div>
   </section>
 </BaseLayout>
 
@@ -244,7 +248,7 @@ export const getStaticPaths = (async () => {
 
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
-      const errorNotification = form.querySelector(".contact-error");
+      const errorNotification = document.querySelector(".contact-error");
 
       if (
         errorNotification &&
