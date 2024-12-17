@@ -1,7 +1,27 @@
 ---
-import { LanguageSwitcher } from "./";
+import * as m from "@messages/messages";
+import { LanguageSwitcher, LcnmqtLogo, Link } from "./";
+
+const { currentLocale } = Astro;
 ---
 
-<header class="px-2 py-4 md:px-8">
+<header class="flex items-center gap-2 px-2 py-4 md:px-8">
+  <div class="flex-1">
+    <Link href={`/${currentLocale}/`} hreflang={currentLocale}>
+      <LcnmqtLogo class="w-24" />
+    </Link>
+  </div>
+  <nav>
+    <ul class="flex gap-2">
+      <li class="capitalize">
+        <Link
+          href={`/${currentLocale}/${m.contact_slug()}`}
+          hreflang={currentLocale}
+        >
+          {m.contact_slug()}
+        </Link>
+      </li>
+    </ul>
+  </nav>
   <LanguageSwitcher />
 </header>
