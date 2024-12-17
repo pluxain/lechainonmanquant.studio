@@ -7,6 +7,7 @@ import LcnmqtIcon from "./LcnmqtIcon.astro";
 import LcnmqtLogo from "./LcnmqtLogo.astro";
 import Notification from "./Notification.astro";
 import ProgressIndicator from "./ProgressIndicator.astro";
+import SelfLink from "./SelfLink.astro";
 import VisualIndicator from "./VisualIndicator.astro";
 
 export {
@@ -19,5 +20,6 @@ export {
   LcnmqtLogo,
   Notification,
   ProgressIndicator,
+  SelfLink,
   VisualIndicator,
 };
