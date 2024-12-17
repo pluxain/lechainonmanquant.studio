@@ -1,0 +1,34 @@
+---
+import type { Severity } from "@types";
+
+type Props = {
+  severity: Severity;
+  class?: string;
+};
+
+const { class: className, severity } = Astro.props;
+---
+
+<div
+  class:list={[
+    "notification my-2 border-l-4 p-2 text-left",
+    // `border-${severity}-accent bg-${severity}-solid text-${severity}`, // does not work as dynamic classes will not be included by Tailwind
+    {
+      "border-danger-accent bg-danger-solid text-danger": severity === "danger",
+    },
+    {
+      "border-info-accent bg-info-solid text-info": severity === "info",
+    },
+    {
+      "border-success-accent bg-success-solid text-success":
+        severity === "success",
+    },
+    {
+      "border-warning-accent bg-warning-solid text-warning":
+        severity === "warning",
+    },
+    className,
+  ]}
+>
+  <slot />
+</div>

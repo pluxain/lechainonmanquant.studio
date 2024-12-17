@@ -5,6 +5,9 @@ import LanguageTag from "./LanguageTag.astro";
 import Link from "./Link.astro";
 import LcnmqtIcon from "./LcnmqtIcon.astro";
 import LcnmqtLogo from "./LcnmqtLogo.astro";
+import Notification from "./Notification.astro";
+import ProgressIndicator from "./ProgressIndicator.astro";
+import VisualIndicator from "./VisualIndicator.astro";
 
 export {
   Footer,
@@ -14,4 +17,7 @@ export {
   Link,
   LcnmqtIcon,
   LcnmqtLogo,
+  Notification,
+  ProgressIndicator,
+  VisualIndicator,
 };

@@ -1,0 +1,13 @@
+---
+import AnimatedVerticalBars from "@images/design/animated-vertical-bars.svg";
+
+type Props = {
+  class?: string;
+};
+
+const { class: className } = Astro.props;
+---
+
+<AnimatedVerticalBars
+  class:list={["flex items-center justify-center", className]}
+/>
