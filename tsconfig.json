@@ -9,7 +9,9 @@
       "@layouts/*": ["src/layouts/*"],
       "@libs/*": ["src/libs/*"],
       "@messages/*": ["src/paraglide/*"],
-      "@styles/*": ["src/styles/*"]
+      "@styles/*": ["src/styles/*"],
+      "@types": ["src/types/"],
+      "@types/*": ["src/types/*"]
     }
   },
   "include": [".astro/types.d.ts", "**/*"],

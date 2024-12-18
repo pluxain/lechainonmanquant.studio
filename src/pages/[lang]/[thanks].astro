@@ -1,0 +1,31 @@
+---
+import type { GetStaticPaths } from "astro";
+import { Notification } from "@components";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import * as m from "@messages/messages";
+import { availableLanguageTags } from "@messages/runtime";
+
+const pageTitle = `${m.thanks_title()}!`;
+const notification = `${m.thanks_notification_success()}.`;
+
+export const getStaticPaths = (async () => {
+  return availableLanguageTags.map((lang) => ({
+    params: { lang, thanks: m.thanks_slug(undefined, { languageTag: lang }) },
+  }));
+}) satisfies GetStaticPaths;
+---
+
+<BaseLayout
+  description={`${pageTitle} ${notification}`}
+  pageTitle={pageTitle}
+  robots="noindex, follow"
+>
+  <section
+    class="flex w-full grow flex-col justify-center text-center md:m-auto md:w-96"
+  >
+    <h1 class="py-10 text-3xl font-bold [font-variant-caps:small-caps]">
+      {pageTitle}
+    </h1>
+    <Notification severity="success">{notification}</Notification>
+  </section>
+</BaseLayout>

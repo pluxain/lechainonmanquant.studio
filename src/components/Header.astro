@@ -1,7 +1,44 @@
 ---
-import { LanguageSwitcher } from "./";
+import * as m from "@messages/messages";
+import { LanguageSwitcher, LcnmqtLogo, Link, SelfLink } from ".";
+
+const { currentLocale, url } = Astro;
+const navs = [
+  {
+    href: `/${currentLocale}/${m.contact_slug()}`,
+    text: m.contact_slug(),
+  },
+];
 ---
 
-<header class="px-2 py-4 md:px-8">
+<header class="flex items-center gap-2 px-2 py-4 md:px-8">
+  <div class="flex-1">
+    {
+      `/${currentLocale}/` === url.pathname ? (
+        <LcnmqtLogo class="w-24" />
+      ) : (
+        <Link href={`/${currentLocale}/`} hreflang={currentLocale}>
+          <LcnmqtLogo class="w-24" />
+        </Link>
+      )
+    }
+  </div>
+  <nav>
+    <ul class="flex gap-2">
+      {
+        navs.map(({ href, text }) => (
+          <li class="capitalize">
+            {href === url.pathname ? (
+              <SelfLink text={text} />
+            ) : (
+              <Link href={href} hreflang={currentLocale}>
+                {text}
+              </Link>
+            )}
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
   <LanguageSwitcher />
 </header>

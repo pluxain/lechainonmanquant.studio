@@ -1,5 +1,6 @@
 ---
 import { availableLanguageTags } from "@messages/runtime";
+import { SelfLink } from ".";
 
 type Props = {
   lang: (typeof availableLanguageTags)[number];
@@ -8,4 +9,4 @@ type Props = {
 const { lang } = Astro.props;
 ---
 
-<span>[{lang}]</span>
+<SelfLink text={lang} />

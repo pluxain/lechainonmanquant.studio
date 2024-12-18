@@ -1,0 +1,96 @@
+---
+import type { Size } from "@types";
+
+type Props = {
+  trackedId: string;
+  max: number;
+  class?: string;
+  thickness?: Size;
+};
+
+const { class: className, max, trackedId, thickness = "base" } = Astro.props;
+---
+
+<astro-progress-indicator data-tracked-id={trackedId} data-max={max}>
+  <hr
+    id={`${trackedId}-progress-indicator`}
+    class:list={[
+      "border-transparent",
+      { "border-4": thickness === "lg" },
+      { "border-2": thickness === "base" },
+      { border: thickness === "sm" },
+      className,
+    ]}
+  />
+</astro-progress-indicator>
+
+<script>
+  import { amber, green, orange, red, yellow } from "tailwindcss/colors";
+  import {
+    HTMLComponentElementNotFoundError,
+    HTMLComponentPropError,
+  } from "@libs/errors";
+  import { formResetEventKey } from "@libs/events";
+
+  class AstroProgressIndicator extends HTMLElement {
+    #getColorState(progress: number): string {
+      const steps = {
+        transparent: 1,
+        [red[500]]: 25,
+        [orange[400]]: 50,
+        [amber[400]]: 75,
+        [yellow[300]]: 100,
+      };
+
+      for (const [color, step] of Object.entries(steps)) {
+        if (progress < step) {
+          return color;
+        }
+      }
+      return green[500];
+    }
+
+    connectedCallback() {
+      const { max, trackedId } = this.dataset;
+
+      // Prop validation
+      [
+        ["max", max],
+        ["trackedId", trackedId],
+      ].forEach(([name, prop]) => {
+        if (typeof prop === "undefined") {
+          throw new HTMLComponentPropError(`${name} must be set`);
+        }
+      });
+
+      const tracked = document.getElementById(trackedId!);
+      if (tracked instanceof HTMLTextAreaElement) {
+        const indicator = this.querySelector<HTMLHRElement>(
+          `#${trackedId}-progress-indicator`,
+        );
+
+        if (indicator === null) {
+          throw new HTMLComponentElementNotFoundError(
+            `HTMLElement with id ${trackedId}-progress-indicator is required`,
+          );
+        }
+
+        tracked.addEventListener("input", () => {
+          const count = tracked.textLength;
+          const progress = Math.floor((count * 100) / +max!);
+          const color = this.#getColorState(progress);
+
+          indicator.style.setProperty("width", `${Math.min(progress, 100)}%`);
+          indicator.style.setProperty("border-color", color);
+
+          this.setAttribute("title", count.toString());
+        });
+
+        tracked.addEventListener(formResetEventKey, () => {
+          indicator.style.setProperty("border-color", "transparent");
+        });
+      }
+    }
+  }
+  customElements.define("astro-progress-indicator", AstroProgressIndicator);
+</script>
