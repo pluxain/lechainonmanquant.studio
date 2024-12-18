@@ -32,10 +32,10 @@ export const getStaticPaths = (async () => {
     </h1>
     <Notification class="contact-error invisible my-0" severity="danger">
       <p>
-        {m.contact_error_oh_nooo()}
+        {m.contact_error_oh_nooo()}...
       </p>
       <p>
-        {m.contact_error_try_later()}
+        {m.contact_error_try_later()}!
       </p>
     </Notification>
     <div class="mb-6 flex flex-col gap-4 md:flex-row">
@@ -67,7 +67,7 @@ export const getStaticPaths = (async () => {
               aria-live="polite"
               class="invisible text-sm text-danger peer-invalid:visible"
             >
-              {m.error_email()}
+              {m.error_email()}.
             </p>
           </div>
           <div class="flex flex-col gap-1">
@@ -89,7 +89,7 @@ export const getStaticPaths = (async () => {
               aria-live="polite"
               class="invisible text-sm text-danger peer-invalid:visible"
             >
-              {m.error_subject()}
+              {m.error_subject()}.
             </p>
             <datalist id="subjects">
               {services.map((service) => <option>{service}</option>)}
@@ -115,7 +115,7 @@ export const getStaticPaths = (async () => {
               aria-live="polite"
               class="invisible text-sm text-danger peer-invalid:visible"
             >
-              {m.error_message({ minLength: 50 })}
+              {m.error_message({ minLength: 50 })}.
             </p>
           </div>
         </fieldset>

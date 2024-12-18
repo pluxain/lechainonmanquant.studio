@@ -1,8 +1,8 @@
 {
   "$schema": "https://inlang.com/schema/inlang-message-format",
   "contact_description": "Get in touch with me and I will answer you as soon as possible",
-  "contact_error_oh_nooo": "Oh no! An error occured while sending the email...",
-  "contact_error_try_later": "Please try again later, thank you!",
+  "contact_error_oh_nooo": "Oh no! An error occured while sending the email",
+  "contact_error_try_later": "Please try again later, thank you",
   "contact_form_introduction": "Whether you want to discuss about an idea, have a question, want to know more about me or you have something to say, please use this form",
   "contact_form_label_from": "Your email",
   "contact_form_label_message": "Message",
@@ -12,9 +12,9 @@
   "contact_slug": "contact",
   "contact_title": "Contact me",
   "counseling": "Counseling",
-  "error_email": "Please provide a valid email address.",
-  "error_message": "Please provide a valid message ({minLength} characters minimum).",
-  "error_subject": "Please provide a subject.",
+  "error_email": "Please provide a valid email address",
+  "error_message": "Please provide a valid message ({minLength} characters minimum)",
+  "error_subject": "Please provide a subject",
   "field_required": "field required",
   "here": "here",
   "home_meta_description": "Le ChaînoN ManQuanT Studio offers bespoke software development services",
@@ -26,7 +26,7 @@
   "not_found_solution_intro": "You can access the home page",
   "project_management": "Project Management",
   "software_development": "Software Development",
-  "thanks_notification_success": "Your message has been successfully sent and I will answer you very promptly.",
+  "thanks_notification_success": "Your message has been successfully sent and I will answer you very promptly",
   "thanks_slug": "thanks",
-  "thanks_title": "Thank you!"
+  "thanks_title": "Thank you"
 }

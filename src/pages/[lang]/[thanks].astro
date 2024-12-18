@@ -5,8 +5,8 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import * as m from "@messages/messages";
 import { availableLanguageTags } from "@messages/runtime";
 
-const pageTitle = m.thanks_title();
-const notification = m.thanks_notification_success();
+const pageTitle = `${m.thanks_title()}!`;
+const notification = `${m.thanks_notification_success()}.`;
 
 export const getStaticPaths = (async () => {
   return availableLanguageTags.map((lang) => ({
