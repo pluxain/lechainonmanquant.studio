@@ -3,6 +3,7 @@
   "contact_description": "Get in touch with me and I will answer you as soon as possible",
   "contact_error_oh_nooo": "Oh no! An error occured while sending the email...",
   "contact_error_try_later": "Please try again later, thank you!",
+  "contact_form_introduction": "Whether you want to discuss about an idea, have a question, want to know more about me or you have something to say, please use this form",
   "contact_form_label_from": "Your email",
   "contact_form_label_message": "Message",
   "contact_form_label_subject": "Subject",

@@ -3,6 +3,7 @@
   "contact_description": "N'hésitez pas à me contacter et je vous répondrai dans les meilleurs délais",
   "contact_error_oh_nooo": "Oh non! Une erreur est survenue lors de l'envoi de l'email...",
   "contact_error_try_later": "Merci de réessayer plus tard!",
+  "contact_form_introduction": "Que vous vouliez discuter au sujet d'une idée, poser une question, en savoir plus à mon sujet ou que vous avez quelque chose à dire, veuillez utiliser ce formulaire",
   "contact_form_label_from": "Votre email",
   "contact_form_label_message": "Message",
   "contact_form_label_subject": "Sujet",

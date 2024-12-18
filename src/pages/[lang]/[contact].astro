@@ -40,7 +40,7 @@ export const getStaticPaths = (async () => {
     </Notification>
     <div class="mb-6 flex flex-col gap-4 md:flex-row">
       <div class="flex-1">
-        <p>{description}.</p>
+        <p>{m.contact_form_introduction()}.</p>
       </div>
       <form
         action={`/${currentLocale}/${m.thanks_slug()}`}
