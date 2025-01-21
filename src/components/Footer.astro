@@ -2,6 +2,7 @@
 import * as m from "@messages/messages";
 import { Link } from "@components";
 import GithubLogo from "@images/design/github-mark.svg";
+import SevenSquareLogo from "@images/design/sevensquare.logo.svg";
 
 const tools = [
   {
@@ -44,7 +45,19 @@ const year = new Date().getFullYear();
         ))
       }
     </div>
-    <div class="flex items-start justify-end self-stretch md:items-center">
+    <div
+      class="flex flex-col items-end justify-start gap-1 self-stretch md:flex-row md:items-center md:justify-end"
+    >
+      <span class="text-right">
+        {m.mention_sevensquare()}
+      </span>
+      <Link
+        href="https://www.sevensquare.fr"
+        hreflang="fr"
+        rel="external follow"
+      >
+        <SevenSquareLogo class="h-8 w-8" title="SevenSquare Logo" />
+      </Link>
       <Link
         href="https://github.com/pluxain/lechainonmanquant.studio"
         hreflang="en"
