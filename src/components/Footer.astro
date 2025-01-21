@@ -1,8 +1,7 @@
 ---
-import type { ImageMetadata } from "astro";
-import { Image } from "astro:assets";
 import * as m from "@messages/messages";
 import { Link } from "@components";
+import GithubLogo from "@images/design/github-mark.svg";
 
 const tools = [
   {
@@ -27,11 +26,6 @@ const tools = [
   },
 ];
 
-const designImagesRootPath = "/src/assets/images/design";
-const images = import.meta.glob<{ default: ImageMetadata }>(
-  // Note: for some reason cannot use String interpolation/template
-  "/src/assets/images/design/*.svg",
-);
 const { currentLocale } = Astro;
 ---
 
@@ -61,11 +55,7 @@ const { currentLocale } = Astro;
         hreflang="en"
         rel="external help nofollow"
       >
-        <Image
-          src={images[`${designImagesRootPath}/github-mark.svg`]()}
-          alt="Github Mark"
-          class="h-6 w-6"
-        />
+        <GithubLogo title="Github Mark" class="h-8 w-8" />
       </Link>
     </div>
   </div>
