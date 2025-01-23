@@ -6,7 +6,11 @@ const { currentLocale, url } = Astro;
 const navs = [
   {
     href: `/${currentLocale}/${m.contact_slug()}/`,
-    text: m.contact_slug(),
+    text: m.contact_link(),
+  },
+  {
+    href: `/${currentLocale}/${m.about_slug()}/`,
+    text: m.about_link(),
   },
 ];
 ---
@@ -27,7 +31,7 @@ const navs = [
     <ul class="flex gap-2">
       {
         navs.map(({ href, text }) => (
-          <li class="capitalize">
+          <li>
             {href === url.pathname ? (
               <SelfLink text={text} />
             ) : (
