@@ -1,4 +1,5 @@
 ---
+layout: ../../layouts/MarkdownPageLayout.astro
 title: About
 description: Jack of all trades specialized in frontend development. Armed with a "can do" attitude and focused on finding solutions.  Purposefully seek to write functional, fast and maintainable code following best practices and using tests to give confidence and provide documentation.  Driven to deliver the best software possible to make happy users. 25+ years experience in Information Technology. Eager to learn still!
 ---

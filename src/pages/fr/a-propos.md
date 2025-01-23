@@ -1,4 +1,5 @@
 ---
+layout: ../../layouts/MarkdownPageLayout.astro
 title: À propos
 description: Touche-à-tout spécialisé dans le développement d'applications frontend. Armé d'une attitude "positive" et centré sur la recherche de solutions. Cherche à écrire un code fonctionnel, rapide et facile à maintenir en suivant les meilleures pratiques et en utilisant les tests pour acquérir la confiance et fournir de la documentation. Déterminé à fournir la meilleure expérience logicielle possible pour que la satisfaction des utilisateurs. Plus de 25 ans d'expérience dans les technologies de l'information. Et toujours désireux d'apprendre !
 ---
