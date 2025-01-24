@@ -5,5 +5,8 @@ const { frontmatter } = Astro.props;
 ---
 
 <BaseLayout description={frontmatter.description} pageTitle={frontmatter.title}>
-  <slot />
+  <article class="m-auto w-1/2 text-justify">
+    <h1 class="mb-4 text-center text-3xl font-bold">{frontmatter.title}</h1>
+    <slot />
+  </article>
 </BaseLayout>
