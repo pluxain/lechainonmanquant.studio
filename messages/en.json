@@ -1,5 +1,7 @@
 {
   "$schema": "https://inlang.com/schema/inlang-message-format",
+  "about_link": "About",
+  "about_slug": "about",
   "contact_description": "Get in touch with me and I will answer you as soon as possible",
   "contact_error_oh_nooo": "Oh no! An error occured while sending the email",
   "contact_error_try_later": "Please try again later, thank you",
@@ -9,6 +11,7 @@
   "contact_form_label_subject": "Subject",
   "contact_form_reset": "Reset",
   "contact_form_submit": "Send",
+  "contact_link": "Contact",
   "contact_slug": "contact",
   "contact_title": "Contact me",
   "counseling": "Counseling",

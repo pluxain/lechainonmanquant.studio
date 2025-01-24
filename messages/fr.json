@@ -1,5 +1,7 @@
 {
   "$schema": "https://inlang.com/schema/inlang-message-format",
+  "about_link": "À propos",
+  "about_slug": "a-propos",
   "contact_description": "N'hésitez pas à me contacter et je vous répondrai dans les meilleurs délais",
   "contact_error_oh_nooo": "Oh non! Une erreur est survenue lors de l'envoi de l'email",
   "contact_error_try_later": "Merci de réessayer plus tard",
@@ -10,6 +12,7 @@
   "contact_form_reset": "Réinitialiser",
   "contact_form_submit": "Envoyer",
   "contact_slug": "contact",
+  "contact_link": "Contact",
   "contact_title": "Contactez-moi",
   "counseling": "Conseil",
   "error_email": "Veuillez saisir un adresse email valide",
