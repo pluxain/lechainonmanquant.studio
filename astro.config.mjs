@@ -1,12 +1,16 @@
 // @ts-check
 import { defineConfig, envField } from "astro/config";
-import tailwind from "@astrojs/tailwind";
+import tailwindcss from "@tailwindcss/vite";
 import paraglide from "@inlang/paraglide-astro";
 
 import node from "@astrojs/node";
 
 // https://astro.build/config
 export default defineConfig({
+  adapter: node({
+    mode: "standalone",
+  }),
+
   env: {
     schema: {
       LOG_LEVEL: envField.enum({
@@ -37,20 +41,20 @@ export default defineConfig({
       project: "./project.inlang",
       outdir: "./src/paraglide",
     }),
-    tailwind({
-      // Example: Disable injecting a basic `base.css` import on every page.
-      // Useful if you need to define and/or import your own custom `base.css`.
-      applyBaseStyles: false,
+    // tailwind({
+    //   // Example: Disable injecting a basic `base.css` import on every page.
+    //   // Useful if you need to define and/or import your own custom `base.css`.
+    //   applyBaseStyles: false,
 
-      // Example: Allow writing nested CSS declarations
-      // alongside Tailwind's syntax
-      nesting: true,
-    }),
+    //   // Example: Allow writing nested CSS declarations
+    //   // alongside Tailwind's syntax
+    //   nesting: true,
+    // }),
   ],
 
   site: "https://lechainonmanquant.studio",
 
-  adapter: node({
-    mode: "standalone",
-  }),
+  vite: {
+    plugins: [tailwindcss()],
+  },
 });

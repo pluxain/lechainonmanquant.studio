@@ -1,10 +1,68 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@source './**/*.css';
+
+@theme {
+  /* --color-*: initial; */
+  --color-black: #000;
+
+  --color-danger-accent: var(--color-red-300);
+  --color-danger: var(--color-red-500);
+  --color-danger-solid: var(--color-red-50);
+
+  --color-info-accent: var(--color-cyan-300);
+  --color-info: var(--color-cyan-500);
+  --color-info-solid: var(--color-cyan-50);
+
+  --color-inherit: inherit;
+
+  --color-lcnmqt-primary: var(--color-blue-400);
+  --color-lcnmqt-secondary: var(--color-gray-700);
+
+  --color-primary-accent: var(--color-blue-300);
+  --color-primary: var(--color-blue-500);
+  --color-primary-solid: var(--color-blue-50);
+
+  --color-secondary-accent: var(--color-gray-300);
+  --color-secondary: var(--color-gray-500);
+  --color-secondary-solid: var(--color-gray-50);
+
+  --color-success-accent: var(--color-green-300);
+  --color-success: var(--color-green-500);
+  --color-success-solid: var(--color-green-50);
+
+  --color-transparent: transparent;
+
+  --color-warning-accent: var(--color-orange-300);
+  --color-warning: var(--color-orange-500);
+  --color-warning-solid: var(--color-orange-50);
+
+  --color-white: #fff;
+
+  --text-*: initial;
+  --text-xs: 0.75rem;
+  --text-xs--line-height: 1rem;
+  --text-sm: 0.875rem;
+  --text-sm--line-height: 1.25rem;
+  --text-base: 1.25rem;
+  --text-base--line-height: 1.75rem;
+  --text-lg: 1.5rem;
+  --text-lg--line-height: 2rem;
+  --text-xl: 1.875rem;
+  --text-xl--line-height: 2.25rem;
+  --text-2xl: 2.25rem;
+  --text-2xl--line-height: 2.5rem;
+  --text-3xl: 3rem;
+  --text-3xl--line-height: 1;
+  --text-4xl: 3.75rem;
+  --text-4xl--line-height: 1;
+
+  --font-lcnmqt: Dosis, sans-serif;
+}
 
 @layer base {
   @font-face {
-    font-family: 'Dosis';
+    font-family: "Dosis";
     font-style: normal;
     font-weight: 400;
     font-display: swap;
