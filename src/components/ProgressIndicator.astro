@@ -25,7 +25,6 @@ const { class: className, max, trackedId, thickness = "base" } = Astro.props;
 </astro-progress-indicator>
 
 <script>
-  import { amber, green, orange, red, yellow } from "tailwindcss/colors";
   import {
     HTMLComponentElementNotFoundError,
     HTMLComponentPropError,
@@ -35,11 +34,11 @@ const { class: className, max, trackedId, thickness = "base" } = Astro.props;
   class AstroProgressIndicator extends HTMLElement {
     #getColorState(progress: number): string {
       const steps = {
-        transparent: 1,
-        [red[500]]: 25,
-        [orange[400]]: 50,
-        [amber[400]]: 75,
-        [yellow[300]]: 100,
+        "var(--color-progress-0)": 1,
+        "var(--color-progress-25)": 25,
+        "var(--color-progress-50)": 50,
+        "var(--color-progress-75)": 75,
+        "var(--color-progress-100)": 100,
       };
 
       for (const [color, step] of Object.entries(steps)) {
@@ -47,7 +46,7 @@ const { class: className, max, trackedId, thickness = "base" } = Astro.props;
           return color;
         }
       }
-      return green[500];
+      return "var(--color-progress-done)";
     }
 
     connectedCallback() {
