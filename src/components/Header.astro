@@ -15,7 +15,7 @@ const navs = [
 ];
 ---
 
-<header class="flex items-center gap-2 px-2 py-4 md:px-8">
+<header class="mb-12 flex items-center gap-2 px-2 py-4 md:px-8">
   <div class="flex-1">
     {
       `/${currentLocale}/` === url.pathname ? (
@@ -44,5 +44,6 @@ const navs = [
       }
     </ul>
   </nav>
+  <span>/</span>
   <LanguageSwitcher />
 </header>
