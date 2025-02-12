@@ -25,7 +25,7 @@ Cette expérience m'a permis d'acquérir un sens aigu de la gestion de Produit (
 
 Je pense multilingue dès le départ, j'essaie au maximum d'éviter la complexité inutile en décomposant les fonctionnalités en unité plus petites ou même en remettant en cause les fonctionnalités ! Il y a déjà tellement d'âneries ici-bas dont nous n'avons pas besoin et que nous n'avons pas demandé...
 
-N'hésitez pas à me contacter! Vous pouvez le faire sur la [page contact](/fr/contact) ou bien en m'envoyant un courriel directement à l'adresse [pascal@lechainonmanquant.studio](mailto:pascal@lechainonmanquant.studio).
+N'hésitez pas à me contacter! Vous pouvez le faire sur la [page contact](/fr/contact/) ou bien en m'envoyant un courriel directement à l'adresse [pascal@lechainonmanquant.studio](mailto:pascal@lechainonmanquant.studio).
 
 Je me réjouis déjà d'entendre vos belles idées et de vous aider à les rendre réelles.
 
