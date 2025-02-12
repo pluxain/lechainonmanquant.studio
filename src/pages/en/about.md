@@ -25,7 +25,7 @@ This experience has enabled me to acquire a sharp sense of product management (P
 
 I think multilingual from scratch, I try to avoid unnecessary complexity as much as possible by breaking down features to smaller chunks or even challenge features! There is already so much bullshit out there that we do not need and did not ask for...
 
-Please do not hesitate to contact me ! You can do so on the [contact page](/en/contact) or by sending me an email at [pascal@lechainonmanquant.studio](mailto:pascal@lechainonmanquant.studio).
+Please do not hesitate to contact me ! You can do so on the [contact page](/en/contact/) or by sending me an email at [pascal@lechainonmanquant.studio](mailto:pascal@lechainonmanquant.studio).
 
 I am already looking forward to hearing your great ideas and helping you make them a reality.
 
