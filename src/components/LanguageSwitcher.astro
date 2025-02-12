@@ -5,7 +5,9 @@ import { LanguageTag, Link } from "./";
 const { currentLocale } = Astro;
 ---
 
-<ul class="flex flex-row justify-end gap-2">
+<ul
+  class="flex flex-col items-end justify-between gap-1 md:flex-row md:items-center md:justify-end md:gap-2"
+>
   {
     availableLanguageTags.map((lang) => (
       <li>

@@ -15,8 +15,10 @@ const navs = [
 ];
 ---
 
-<header class="mb-12 flex items-center gap-2 px-2 py-4 md:px-8">
-  <div class="flex-1">
+<header
+  class="mb-12 flex items-center justify-between gap-2 px-2 py-4 text-sm md:px-8"
+>
+  <div>
     {
       `/${currentLocale}/` === url.pathname ? (
         <LcnmqtLogo class="w-24" />
@@ -27,8 +29,10 @@ const navs = [
       )
     }
   </div>
-  <nav>
-    <ul class="flex gap-2">
+  <nav class="flex gap-2">
+    <ul
+      class="flex flex-col items-end justify-between gap-1 border-r pr-2 md:flex-row md:justify-end md:gap-2"
+    >
       {
         navs.map(({ href, text }) => (
           <li>
@@ -43,7 +47,6 @@ const navs = [
         ))
       }
     </ul>
+    <LanguageSwitcher />
   </nav>
-  <span>/</span>
-  <LanguageSwitcher />
 </header>
