@@ -1,9 +1,9 @@
 ---
 import type { GetStaticPaths } from "astro";
-import { Notification, ProgressIndicator, VisualIndicator } from "@components";
-import BaseLayout from "@layouts/BaseLayout.astro";
-import * as m from "@messages/messages";
-import { availableLanguageTags } from "@messages/runtime";
+import { Notification, ProgressIndicator, VisualIndicator } from "#components";
+import BaseLayout from "#layouts/BaseLayout.astro";
+import * as m from "#messages/messages";
+import { availableLanguageTags } from "#messages/runtime";
 
 const pageTitle = m.contact_title();
 const description = m.contact_description();
@@ -157,7 +157,7 @@ export const getStaticPaths = (async () => {
     formSubmitEventKey,
     formSubmitFailedEvent,
     formSubmitFailedEventKey,
-  } from "@libs/events";
+  } from "#libs/events";
 
   const form = document.querySelector(".contact-form");
 

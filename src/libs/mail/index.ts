@@ -1,5 +1,5 @@
 import { createTransport } from "nodemailer";
-import { ConfigurationError } from "@libs/errors/ConfigurationError";
+import { ConfigurationError } from "#libs/errors/ConfigurationError";
 
 type SendMailOptions = {
   from: string;

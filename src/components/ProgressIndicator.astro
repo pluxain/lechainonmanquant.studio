@@ -1,5 +1,5 @@
 ---
-import type { Size } from "@types";
+import type { Size } from "#types";
 
 type Props = {
   trackedId: string;
@@ -28,8 +28,8 @@ const { class: className, max, trackedId, thickness = "base" } = Astro.props;
   import {
     HTMLComponentElementNotFoundError,
     HTMLComponentPropError,
-  } from "@libs/errors";
-  import { formResetEventKey } from "@libs/events";
+  } from "#libs/errors";
+  import { formResetEventKey } from "#libs/events";
 
   class AstroProgressIndicator extends HTMLElement {
     #getColorState(progress: number): string {

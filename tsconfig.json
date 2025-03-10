@@ -3,15 +3,15 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@components": ["src/components/"],
-      "@components/*": ["src/components/*"],
-      "@images/*": ["src/assets/images/*"],
-      "@layouts/*": ["src/layouts/*"],
-      "@libs/*": ["src/libs/*"],
-      "@messages/*": ["src/paraglide/*"],
-      "@styles/*": ["src/styles/*"],
-      "@types": ["src/types/"],
-      "@types/*": ["src/types/*"]
+      "#components": ["src/components/"],
+      "#components/*": ["src/components/*"],
+      "#images/*": ["src/assets/images/*"],
+      "#layouts/*": ["src/layouts/*"],
+      "#libs/*": ["src/libs/*"],
+      "#messages/*": ["src/paraglide/*"],
+      "#styles/*": ["src/styles/*"],
+      "#types": ["src/types/"],
+      "#types/*": ["src/types/*"]
     }
   },
   "include": [".astro/types.d.ts", "**/*"],
