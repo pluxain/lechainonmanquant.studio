@@ -1,2 +1,2 @@
 npx validate-branch-name
-npx lint-staged
+npx @biomejs/biome check --write
