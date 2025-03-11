@@ -2,3 +2,9 @@ remotes:
   - git_url: https://github.com/pluxain/lefthook-config
     configs:
       - lefthook.astro.yml
+
+post-merge:
+  scripts:
+    deploy-astro:
+      only:
+        - ref: main
