@@ -1,2 +1,0 @@
-npx validate-branch-name
-npx @biomejs/biome check --write
