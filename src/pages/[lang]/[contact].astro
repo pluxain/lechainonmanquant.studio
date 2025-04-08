@@ -25,9 +25,7 @@ export const getStaticPaths = (async () => {
 
 <BaseLayout description={description} pageTitle={pageTitle}>
   <section class="flex w-full grow flex-col justify-center md:m-auto">
-    <h1
-      class="py-10 text-center text-3xl font-bold [font-variant-caps:small-caps]"
-    >
+    <h1 class="py-10 text-center text-3xl font-bold [font-variant-caps:small-caps]">
       {pageTitle}
     </h1>
     <Notification class="contact-error invisible my-0" severity="danger">
@@ -42,11 +40,7 @@ export const getStaticPaths = (async () => {
       <div class="flex-1">
         <p>{m.contact_form_introduction()}.</p>
       </div>
-      <form
-        action={`/${currentLocale}/${m.thanks_slug()}`}
-        novalidate
-        class="contact-form flex flex-1 flex-col gap-4"
-      >
+      <form action={`/${currentLocale}/${m.thanks_slug()}`} novalidate class="contact-form flex flex-1 flex-col gap-4">
         <fieldset class="flex flex-col gap-2">
           <div class="flex flex-col gap-1">
             <label for="from" class="font-bold">
@@ -62,11 +56,7 @@ export const getStaticPaths = (async () => {
               autocomplete="off"
               class="grow border-b-2 pb-1 outline-hidden"
             />
-            <p
-              role="alert"
-              aria-live="polite"
-              class="text-danger invisible text-sm peer-invalid:visible"
-            >
+            <p role="alert" aria-live="polite" class="text-danger invisible text-sm peer-invalid:visible">
               {m.error_email()}.
             </p>
           </div>
@@ -84,11 +74,7 @@ export const getStaticPaths = (async () => {
               autocomplete="off"
               class="grow border-b-2 pb-1 outline-hidden"
             />
-            <p
-              role="alert"
-              aria-live="polite"
-              class="text-danger invisible text-sm peer-invalid:visible"
-            >
+            <p role="alert" aria-live="polite" class="text-danger invisible text-sm peer-invalid:visible">
               {m.error_subject()}.
             </p>
             <datalist id="subjects">
@@ -108,13 +94,8 @@ export const getStaticPaths = (async () => {
               required
               minlength="50"
               autocomplete="off"
-              class="h-32 grow resize-y border-b-2 py-1 outline-hidden"
-            ></textarea>
-            <p
-              role="alert"
-              aria-live="polite"
-              class="text-danger invisible text-sm peer-invalid:visible"
-            >
+              class="h-32 grow resize-y border-b-2 py-1 outline-hidden"></textarea>
+            <p role="alert" aria-live="polite" class="text-danger invisible text-sm peer-invalid:visible">
               {m.error_message({ minLength: 50 })}.
             </p>
           </div>
@@ -122,8 +103,7 @@ export const getStaticPaths = (async () => {
         <fieldset class="flex flex-col justify-end gap-2 sm:flex-row">
           <button
             type="reset"
-            class="bg-secondary text-secondary-solid disabled:bg-secondary-accent flex grow items-center justify-center px-4 py-2"
-          >
+            class="bg-secondary text-secondary-solid disabled:bg-secondary-accent flex grow items-center justify-center px-4 py-2">
             <span class="text">
               {m.contact_form_reset()}
             </span>
@@ -131,8 +111,7 @@ export const getStaticPaths = (async () => {
           <button
             type="submit"
             disabled
-            class="bg-primary text-primary-solid disabled:bg-primary-accent flex grow items-center justify-center px-4 py-2"
-          >
+            class="bg-primary text-primary-solid disabled:bg-primary-accent flex grow items-center justify-center px-4 py-2">
             <span class="text">
               {m.contact_form_submit()}
             </span>
@@ -166,20 +145,15 @@ export const getStaticPaths = (async () => {
     const submit = form.querySelector('button[type="submit"]');
 
     if (to === null) {
-      throw new Error(
-        "You must provide a value for the action attribute on the form",
-      );
+      throw new Error("You must provide a value for the action attribute on the form");
     }
 
     if (submit === null) {
       throw new Error("You must provide a submit button");
     }
 
-    const inputValidationCssClasses = [
-      "peer",
-      "valid:border-success",
-      "invalid:border-danger",
-    ];
+    // TODO: migrate to TailwindCSS 4.1 and use user-valid: user-invalid directly
+    const inputValidationCssClasses = ["peer", "valid:border-success", "invalid:border-danger"];
     const disableSubmit = () => submit.setAttribute("disabled", "");
     const enableSubmit = () => submit.removeAttribute("disabled");
     const activateValidation = (el: HTMLInputElement | HTMLTextAreaElement) => {
@@ -190,9 +164,7 @@ export const getStaticPaths = (async () => {
       });
     };
 
-    const deactivateValidation = (
-      el: HTMLInputElement | HTMLTextAreaElement,
-    ) => {
+    const deactivateValidation = (el: HTMLInputElement | HTMLTextAreaElement) => {
       inputValidationCssClasses.forEach((cssClass) => {
         if (el.classList.contains(cssClass)) {
           el.classList.remove(cssClass);
@@ -201,11 +173,7 @@ export const getStaticPaths = (async () => {
     };
 
     // We want to keep a ref on inputs to avoid traversing the DOM everytime
-    const inputs = Array.from(
-      form.querySelectorAll<HTMLInputElement | HTMLTextAreaElement>(
-        "[name][id]",
-      ),
-    );
+    const inputs = Array.from(form.querySelectorAll<HTMLInputElement | HTMLTextAreaElement>("[name][id]"));
 
     inputs.forEach((input) => {
       input.addEventListener(formResetEventKey, () => {
@@ -230,10 +198,7 @@ export const getStaticPaths = (async () => {
     });
 
     form.addEventListener("input", (e) => {
-      if (
-        e.target instanceof HTMLInputElement ||
-        e.target instanceof HTMLTextAreaElement
-      ) {
+      if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) {
         const { target: el } = e;
         // Note: we activate the error display mechanism on element only after at least one input.
         activateValidation(el);
@@ -250,10 +215,7 @@ export const getStaticPaths = (async () => {
       e.preventDefault();
       const errorNotification = document.querySelector(".contact-error");
 
-      if (
-        errorNotification &&
-        !errorNotification.classList.contains("invisible")
-      ) {
+      if (errorNotification && !errorNotification.classList.contains("invisible")) {
         errorNotification.classList.add("invisible");
         submit.dispatchEvent(formSubmitFailedEvent);
       }
@@ -271,14 +233,9 @@ export const getStaticPaths = (async () => {
         if (isInputError(error)) {
           const errors = Object.entries(error.fields);
           errors.forEach(([id, messages]) => {
-            const input = inputs.find(
-              (input) => input.getAttribute("id") === id,
-            );
+            const input = inputs.find((input) => input.getAttribute("id") === id);
 
-            if (
-              input instanceof HTMLInputElement ||
-              input instanceof HTMLTextAreaElement
-            ) {
+            if (input instanceof HTMLInputElement || input instanceof HTMLTextAreaElement) {
               input.setCustomValidity(messages.join(", "));
             }
           });
