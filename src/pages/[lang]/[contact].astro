@@ -54,9 +54,9 @@ export const getStaticPaths = (async () => {
               pattern=".+@.+\\..{2,}"
               autofocus
               autocomplete="off"
-              class="grow border-b-2 pb-1 outline-hidden"
+              class="grow border-b-2 pb-1 outline-hidden peer user-valid:border-success user-invalid:border-danger"
             />
-            <p role="alert" aria-live="polite" class="text-danger invisible text-sm peer-invalid:visible">
+            <p role="alert" aria-live="polite" class="text-danger invisible text-sm peer-user-invalid:visible">
               {m.error_email()}.
             </p>
           </div>
@@ -72,9 +72,9 @@ export const getStaticPaths = (async () => {
               required
               minlength="5"
               autocomplete="off"
-              class="grow border-b-2 pb-1 outline-hidden"
+              class="grow border-b-2 pb-1 outline-hidden peer user-valid:border-success user-invalid:border-danger"
             />
-            <p role="alert" aria-live="polite" class="text-danger invisible text-sm peer-invalid:visible">
+            <p role="alert" aria-live="polite" class="text-danger invisible text-sm peer-user-invalid:visible">
               {m.error_subject()}.
             </p>
             <datalist id="subjects">
@@ -94,8 +94,9 @@ export const getStaticPaths = (async () => {
               required
               minlength="50"
               autocomplete="off"
-              class="h-32 grow resize-y border-b-2 py-1 outline-hidden"></textarea>
-            <p role="alert" aria-live="polite" class="text-danger invisible text-sm peer-invalid:visible">
+              class="h-32 grow resize-y border-b-2 py-1 outline-hidden peer user-valid:border-success user-invalid:border-danger"
+            ></textarea>
+            <p role="alert" aria-live="polite" class="text-danger invisible text-sm peer-user-invalid:visible">
               {m.error_message({ minLength: 50 })}.
             </p>
           </div>
@@ -152,34 +153,11 @@ export const getStaticPaths = (async () => {
       throw new Error("You must provide a submit button");
     }
 
-    // TODO: migrate to TailwindCSS 4.1 and use user-valid: user-invalid directly
-    const inputValidationCssClasses = ["peer", "valid:border-success", "invalid:border-danger"];
     const disableSubmit = () => submit.setAttribute("disabled", "");
     const enableSubmit = () => submit.removeAttribute("disabled");
-    const activateValidation = (el: HTMLInputElement | HTMLTextAreaElement) => {
-      inputValidationCssClasses.forEach((cssClass) => {
-        if (!el.classList.contains(cssClass)) {
-          el.classList.add(cssClass);
-        }
-      });
-    };
-
-    const deactivateValidation = (el: HTMLInputElement | HTMLTextAreaElement) => {
-      inputValidationCssClasses.forEach((cssClass) => {
-        if (el.classList.contains(cssClass)) {
-          el.classList.remove(cssClass);
-        }
-      });
-    };
 
     // We want to keep a ref on inputs to avoid traversing the DOM everytime
     const inputs = Array.from(form.querySelectorAll<HTMLInputElement | HTMLTextAreaElement>("[name][id]"));
-
-    inputs.forEach((input) => {
-      input.addEventListener(formResetEventKey, () => {
-        deactivateValidation(input);
-      });
-    });
 
     submit.addEventListener(formSubmitEventKey, () => {
       disableSubmit();
@@ -199,14 +177,6 @@ export const getStaticPaths = (async () => {
 
     form.addEventListener("input", (e) => {
       if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) {
-        const { target: el } = e;
-        // Note: we activate the error display mechanism on element only after at least one input.
-        activateValidation(el);
-
-        if (!el.validity.valid) {
-          el.setCustomValidity("");
-        }
-
         return form.checkValidity() ? enableSubmit() : disableSubmit();
       }
     });
