@@ -10,6 +10,7 @@
     "ignore": ["./dist", "./src/paraglide"]
   },
   "formatter": {
+    "attributePosition": "multiline",
     "enabled": true,
     "indentStyle": "space",
     "indentWidth": 2
@@ -26,7 +27,6 @@
   "javascript": {
     "formatter": {
       "arrowParentheses": "always",
-      "attributePosition": "multiline",
       "quoteStyle": "double",
       "semicolons": "always",
       "trailingCommas": "all"
